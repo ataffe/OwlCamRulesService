@@ -1,2 +1,2 @@
 # OwlCamRulesService
-A micro service for managing rules for the guardian cam system.
+A micro service for managing rules for the owl cam system.
