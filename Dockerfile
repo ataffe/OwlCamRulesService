@@ -45,7 +45,7 @@ COPY --chown=appuser:appuser . .
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-RUN chmod +x entrypoint.sh
+RUN chmod +x run_service.sh
 
 USER appuser
 
