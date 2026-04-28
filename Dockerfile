@@ -25,9 +25,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Stage 2: Production stage
 FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends postgresql-client && \
-    rm -rf /var/lib/apt/lists/* && \
-    useradd -m -r appuser && \
+RUN useradd -m -r appuser && \
     mkdir /app && \
     chown -R appuser /app
 
@@ -45,10 +43,9 @@ COPY --chown=appuser:appuser . .
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-RUN chmod +x run_service.sh
+RUN chmod +x runserver.sh
 
 USER appuser
 
 EXPOSE 8000
-
-CMD ["./entrypoint.sh"]
+CMD ["./runserver.sh"]
