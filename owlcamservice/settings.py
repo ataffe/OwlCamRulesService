@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'djangoinsecure-asoikdfjapoiwehfj2323894askjdf23')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get("DEBUG", default=0))
@@ -77,24 +77,16 @@ WSGI_APPLICATION = 'owlcamservice.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
-# SQLITE DB
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 # POSTGRES DB
 
 DATABASES = {
     'default': {
-        'ENGINE': f'django.db.backends.{os.getenv('DATABASE_ENGINE', 'sqlite3')}',
+        'ENGINE': f'django.db.backends.{os.getenv('DATABASE_ENGINE', 'postgresql')}',
         'NAME': os.getenv('DATABASE_NAME', 'owlcamservicedb'),
         'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
         'PORT': os.getenv('DATABASE_PORT', 5432),
-        'USER': os.getenv('DATABASE_USERNAME', 'root'),
-        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'USER': os.getenv('DATABASE_USERNAME', 'appuser'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD', 'lYr3KCPu6QFr8W9KHcRF7gAK2Wfp'),
         'CONN_MAX_AGE': float(os.getenv('DATABASE_CONN_MAX_AGE', 60)),
     }
 }
