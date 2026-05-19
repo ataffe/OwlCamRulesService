@@ -8,7 +8,14 @@ UUIDv7 function.
 # System Diagram
 ![Scout Cam System Diagram](images/ScoutCamSystemDiagram_web_service.png)
 
+### Other parts of the system
+[Scout Cam Event Processor](https://github.com/ataffe/ScoutCamEventProcessor)
+
+[Scout Cam Camera Client](https://github.com/ataffe/GuardianCamCameraClient)
+
 ---
+
+
 
 # Database Tables
 
